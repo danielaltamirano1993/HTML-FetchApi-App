@@ -9,13 +9,13 @@
     <button id="btn">Fetch Characters</button>
 
     <script>
-      const btn = document.getElementById("btn");
-      const div = document.getElementById("characters");
+      const btn = document.getElementById('btn');
+      const div = document.getElementById('characters');
 
-      btn.addEventListener("click", () => {
-        console.log("Fetch API");
+      btn.addEventListener('click', () => {
+        console.log('Fetch API');
 
-        fetch("https://rickandmortyapi.com/apicharacter")
+        fetch('https://rickandmortyapi.com/api/character')
           .then((response) => response.json())
           .then((data) => renderCharacters(data.results));
       });
