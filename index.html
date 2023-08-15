@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Fetch API</title>
-  </head>
-  <body>
-    <button id="btn">Fetch Characters</button>
 
-    <div id="characters"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewpor1t" content="width=device-width, initial-scale=1.0" />
+  <title>Fetch API</title>
+</head>
 
-    <script>
-      const btn = document.getElementById('btn');
-      const div = document.getElementById('characters');
+<body>
+  <button id="btn">Fetch Characters</button>
 
-      btn.addEventListener('click', () => {
-        console.log('Fetch API');
+  <div id="characters">
 
-        fetch('https://rickandmortyapi.com/api/character')
-          .then((response) => response.json())
-          .then((data) => renderCharacters(data.results));
+  </div>
+
+  <script>
+
+    const btn = document.getElementById('btn');
+    const div = document.getElementById('characters');
+
+    btn.addEventListener('click', () => {
+      console.log('Fetch API');
+
+      fetch('https://rickandmortyapi.com/api/character')
+        .then((response) => response.json())
+        .then((data) => renderCharacters(data.results));
+    });
+
+    function renderCharacters(characters) {
+      characters.forEach((ch) => {
+        div.innerHTML += `<img src="${ch.image}">`;
       });
+    }
+  </script>
+</body>
 
-      function renderCharacters(characters) {
-        characters.forEach((ch) => {
-          div.innerHTML += `<img src="${ch.image}">`;
-        });
-      }
-    </script>
-  </body>
 </html>
